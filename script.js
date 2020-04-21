@@ -13,14 +13,12 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-var specials = " !#$%&'()*+,-./:;<=>?@[']^_`{|}~"
+var specials = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~"
 var lowercase = "abcdefghijklmnopqrstuvwxyz"
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var number = "0123456789"
-var Button = document.querySelector("#generate");
 
 function generatePassword(){
-// Button.addEventListener("click",function(event){
   event.preventDefault();
   let passwstring = "";
   let longitud = 0;
@@ -49,11 +47,15 @@ function generatePassword(){
       alert("Your selection: " + "\n" + "Lowercase: " + minusculas+ "\n"+ "Uppercase: " + mayusculas+ "\n"+ "Numbers: " + numeros+ "\n"+ "Special Characters: " + caracteres+ "\n"+ "Password Length: " +longitud)
      var passw = "";
       for (let i = 0; i < longitud; i++){
-        passw = passw.concat(passwstring[Math.floor(Math.random() * (passwstring.length+1))])
+        let x=Math.floor(Math.random() * (passwstring.length));
+        passw = passw.concat(passwstring[x])
+        console.log(i);
+        console.log(x);
+        console.log(passwstring[x]);
       }
       return passw;
-      // document.querySelector("#password").textContent = passw;
     } else {
       alert("You need to select at least one of the options, start again")
     }
+    
 }//)
